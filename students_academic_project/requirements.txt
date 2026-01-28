@@ -26,3 +26,4 @@ requests==2.31.0
 
 # Optional: Visualization (for better charts in notebooks)
 plotly==5.17.0
+
