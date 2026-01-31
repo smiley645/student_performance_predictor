@@ -97,8 +97,7 @@ students_academic_project/
 │   ├── 01_eda.ipynb             # Exploratory Data Analysis
 │   ├── 02_clustering.ipynb      # KMeans clustering analysis
 │   └── 03_prediction.ipynb      # Model training & evaluation
-│
-├── src/                         # Additional source code
+│                        # Additional source code
 ├── requirements.txt             # Python dependencies
 └── README.md                    # Project overview
 ```
