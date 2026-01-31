@@ -80,8 +80,7 @@ It includes an **interactive web application** where students or educators can i
 ## 📂 Project Structure
 
 ```
-students_academic_project/
-│
+student_performance_predictor
 ├── app/
 │   ├── streamlit_app.py          # Main web application
 │   ├── trained_classifier.pkl    # Saved RandomForest model
