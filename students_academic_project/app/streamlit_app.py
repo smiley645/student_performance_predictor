@@ -296,21 +296,24 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+#---------------------------------------------------------------------------------- changed part 
+BASE_DIR = os.path.dirname(__file__)
 
-# Load models
-MODEL_CLF = r'C:\Users\lenovo\Desktop\students_academic_project\app\trained_classifier.pkl'
-MODEL_REG = r'C:\Users\lenovo\Desktop\students_academic_project\app\trained_regressor.pkl'
-SCALER = r'C:\Users\lenovo\Desktop\students_academic_project\app\scaler.pkl'
+scaler_path = os.path.join(BASE_DIR, "scaler.pkl")
+classifier_path = os.path.join(BASE_DIR, "trained_classifier.pkl")
+regressor_path = os.path.join(BASE_DIR, "trained_regressor.pkl")
 
-if not os.path.exists(MODEL_CLF) or not os.path.exists(MODEL_REG) or not os.path.exists(SCALER):
+if not (os.path.exists(scaler_path) and
+        os.path.exists(classifier_path) and
+        os.path.exists(regressor_path)):
     st.error("❌ Model files not found. Please run the training cell first.")
     st.stop()
 
-clf = joblib.load(MODEL_CLF)
-reg = joblib.load(MODEL_REG)
-with open(SCALER, 'rb') as f:
-    scaler = pickle.load(f)
+scaler = joblib.load(scaler_path)
+classifier = joblib.load(classifier_path)
+regressor = joblib.load(regressor_path)
 
+#----------------------------------------------------------------------------------------------------------- end of changed part
 # Header
 st.markdown('<h1 class="header-title">🎓 Student Performance Predictor</h1>', unsafe_allow_html=True)
 st.markdown('<p class="header-subtitle">Discover your potential and get personalized learning tips based on psychology</p>', unsafe_allow_html=True)
@@ -782,4 +785,5 @@ st.markdown('''
     <p>💪 <strong>Remember:</strong> Your brain is incredible! With the right habits (sleep, breaks, consistency), you can achieve anything!</p>
     <p style="margin-top: 0.8em; color: #94a3b8;">Built on psychology-backed research to help students succeed 🎓</p>
 </div>
+
 ''', unsafe_allow_html=True)
